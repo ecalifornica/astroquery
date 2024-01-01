@@ -44,6 +44,7 @@ class AlfalfaClass(BaseQuery):
             return self.ALFALFACAT
 
         result = requests.get(self.CATALOG_PREFIX)
+        result.raise_for_status()
         iterable_lines = result.text.split('\n')
 
         # Read header
